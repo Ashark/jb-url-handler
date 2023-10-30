@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=jb url handler
+Comment=Handler for jb:// scheme for JetBrains IDEs
+Icon=jb_beam
+NoDisplay=true
+Categories=Development;Utility;
+Exec=jb-url-handler %u
+Terminal=false
+MimeType=x-scheme-handler/jb
+StartupNotify=false
+X-Desktop-File-Install-Version=0.27
