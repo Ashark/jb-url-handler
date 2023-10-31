@@ -23,13 +23,45 @@ else:
 
 cmd = []
 match params["ide"][0]:
+    case "clion":  # https://aur.archlinux.org/packages/clion-eap
+        cmd.append("clion-eap")
+    case "datagrip":  # https://aur.archlinux.org/packages/datagrip-eap
+        cmd.append("datagrip-eap")
+    case "dataspell":  # https://aur.archlinux.org/packages/dataspell-eap
+        cmd.append("dataspell-eap")
+    case "goland":  # https://aur.archlinux.org/packages/goland-eap
+        cmd.append("goland-eap")
+    case "idea":
+        if os.path.exists("/usr/bin/" + "idea-ue-eap"):
+            cmd.append("idea-ue-eap")  # https://aur.archlinux.org/packages/intellij-idea-ue-eap
+        elif os.path.exists("/usr/bin/" + "idea-ce-eap"):
+            cmd.append("idea-ce-eap")  # https://aur.archlinux.org/packages/intellij-idea-ce-eap
+        else:
+            raise ValueError
+    case "phpstorm":  # https://aur.archlinux.org/packages/phpstorm-eap
+        cmd.append("phpstorm-eap")
+    case "pycharm":
+        if os.path.exists("/usr/bin" + "pycharm-eap"):
+            cmd.append("pycharm-eap")  # https://aur.archlinux.org/packages/pycharm-eap
+        elif os.path.exists("/usr/bin/" + "pycharm-ce"):
+            cmd.append("pycharm-ce")  # https://aur.archlinux.org/packages/pycharm-community-eap
+        else:
+            raise ValueError
+    case "rider":  # https://aur.archlinux.org/packages/rider-eap
+        cmd.append("rider-eap")
+    case "rubymine":  # https://aur.archlinux.org/packages/rubymine-eap
+        cmd.append("rubymine-eap")
+    case "rustrover":  # https://aur.archlinux.org/packages/rustrover-eap
+        cmd.append("rustrover-eap")
+    case "webstorm":  # https://aur.archlinux.org/packages/webstorm-eap
+        cmd.append("webstorm-eap")
     case "writerside":
         cmd.append("writerside-eap")
-        cmd.append(project_path)
-        cmd.append(file_path)
     case _:
         raise ValueError
 
+cmd.append(project_path)
+cmd.append(file_path)
 
 cmd.append("&")  # to release the current process, in case the ide is just launched (i.e., there was no running instance of ide before launch current script)
 cmd = " ".join(cmd)
