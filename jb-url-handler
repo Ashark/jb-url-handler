@@ -43,7 +43,7 @@ match params["ide"][0]:
     case "phpstorm":  # https://aur.archlinux.org/packages/phpstorm-eap
         cmd.append("phpstorm-eap")
     case "pycharm":
-        if os.path.exists("/usr/bin" + "pycharm-eap"):
+        if os.path.exists("/usr/bin/" + "pycharm-eap"):
             cmd.append("pycharm-eap")  # https://aur.archlinux.org/packages/pycharm-eap
         elif os.path.exists("/usr/bin/" + "pycharm-ce"):
             cmd.append("pycharm-ce")  # https://aur.archlinux.org/packages/pycharm-community-eap
