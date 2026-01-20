@@ -34,9 +34,7 @@ match params["ide"][0]:
     case "idea":
         if os.path.exists("/usr/bin/" + "idea-ue-eap"):
             cmd.append("idea-ue-eap")  # https://aur.archlinux.org/packages/intellij-idea-ue-eap
-        elif os.path.exists("/usr/bin/" + "idea-ce-eap"):
-            cmd.append("idea-ce-eap")  # https://aur.archlinux.org/packages/intellij-idea-ce-eap
-        elif os.path.exists("idea"):
+        elif os.path.exists("/usr/bin/" + "idea"):
             cmd.append("idea")  # https://archlinux.org/packages/extra/x86_64/intellij-idea-community-edition/
         else:
             raise ValueError
@@ -45,10 +43,8 @@ match params["ide"][0]:
     case "pycharm":
         if os.path.exists("/usr/bin/" + "pycharm-eap"):
             cmd.append("pycharm-eap")  # https://aur.archlinux.org/packages/pycharm-eap
-        elif os.path.exists("/usr/bin/" + "pycharm-ce"):
-            cmd.append("pycharm-ce")  # https://aur.archlinux.org/packages/pycharm-community-eap
-        elif os.path.exists("pycharm"):
-            cmd.append("pycharm")  # https://archlinux.org/packages/extra/x86_64/pycharm-community-edition/
+        elif os.path.exists("/usr/bin/" + "pycharm"):
+            cmd.append("pycharm")  # https://aur.archlinux.org/packages/pycharm and https://archlinux.org/packages/extra/x86_64/pycharm-community-edition/
         else:
             raise ValueError
     case "rider":  # https://aur.archlinux.org/packages/rider-eap
